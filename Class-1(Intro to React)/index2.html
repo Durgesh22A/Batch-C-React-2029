@@ -13,18 +13,23 @@
       crossorigin
       src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
     ></script>
+   <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <div id="root"></div>
+    <div id="root1"></div>
+
   </body>
   <script type="text/babel">
-    // This is how you do it with DOM
-    // let root = document.getElementById("root");
-    // let heading1 = document.createElement("h1");
+  
 
-    // heading1.innerText = "Hello";
+    let root1 = document.getElementById("root1");
+    let heading1 = document.createElement("h1");
 
-    // root.appendChild(heading1);
+    heading1.innerText = "Hello";
+
+    root1.appendChild(heading1);
+
 
     // React
 
@@ -40,10 +45,13 @@
       );
     } // JSX
 
+    
+
+
     function NavBar() {
       return (
         <div>
-          <a> Home</a>
+          <a className='color'> Home</a>
           <a> Network</a>
           <a> Jobs</a>
           <a> Messaging</a>
@@ -51,6 +59,7 @@
       );
     }
 
+    
 
     function Profile(){
         return(
