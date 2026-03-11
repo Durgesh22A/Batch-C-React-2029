@@ -24,12 +24,12 @@ function WatchList() {
                 alt="poster" 
               />
             </td>
-            <td className="px-6 py-4 font-medium text-gray-900">The Dark Knight</td>
-            <td className="px-6 py-4">⭐ 8.9</td>
-            <td className="px-6 py-4">878</td>
+            <td className="px-6 py-4 font-medium text-gray-900"></td>
+            <td className="px-6 py-4"></td>
+            <td className="px-6 py-4"></td>
             <td className="px-6 py-4">
               <span className="inline-flex items-center gap-1 rounded-full bg-blue-50 px-2 py-1 text-xs font-semibold text-blue-600">
-                Action
+              
               </span>
             </td>
             <td className="px-6 py-4">

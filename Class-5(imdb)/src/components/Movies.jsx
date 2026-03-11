@@ -38,7 +38,7 @@ function Movies() {
       >
         {movies.map((movie) => {
           return (
-            <MovieCard movieTitle={movie.title} posterUrl={movie.poster_path} />
+            <MovieCard movieObj={movie} movieTitle={movie.title} posterUrl={movie.poster_path} />
           );
         })}
       </div>
