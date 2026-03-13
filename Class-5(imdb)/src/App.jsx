@@ -17,6 +17,9 @@ function App() {
 
   useEffect(() => {
     let moviesFromLS = localStorage.getItem("movies");
+    if (!moviesFromLS) {
+      return;
+    }
     let movies = JSON.parse(moviesFromLS);
     setWatchList(movies);
   }, []);
