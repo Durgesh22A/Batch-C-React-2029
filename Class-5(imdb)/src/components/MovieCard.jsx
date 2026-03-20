@@ -1,28 +1,35 @@
-import React, { useState , useContext } from "react";
+import { useContext } from "react";
 import { MovieContext } from "../MovieContext";
 
 function MovieCard({ movieObj, movieTitle, posterUrl }) {
-
- const {addToWatchList} =  useContext(MovieContext)
- 
-
-  // Maintain the watchlist so that one movie gets added only once
+  const { addToWatchList, isInWatchList } = useContext(MovieContext);
+  const alreadyAdded = isInWatchList(movieObj?.id);
+  const posterStyle = posterUrl
+    ? {
+        backgroundImage: `url(https://image.tmdb.org/t/p/w500${posterUrl})`,
+      }
+    : undefined;
 
   return (
     <div
       className="relative w-60 h-80 rounded-xl bg-cover bg-center cursor-pointer transition-transform duration-300 hover:scale-105 shadow-lg overflow-hidden"
-      style={{
-        backgroundImage: `url(https://image.tmdb.org/t/p/w500${posterUrl})`,
-      }}
+      style={posterStyle}
     >
       {/* Add to Watchlist Button */}
-      <div className="absolute top-2 right-2 flex items-center justify-center h-8 w-8 bg-gray-900/60 rounded-lg text-white hover:bg-blue-600 transition-colors duration-200">
-        <span
+      <div className="absolute top-2 right-2 flex items-center justify-center h-8 w-8 bg-gray-900/60 rounded-lg text-white transition-colors duration-200">
+        <button
+          type="button"
           onClick={() => addToWatchList(movieObj)}
-          className="text-xl font-bold"
+          disabled={alreadyAdded}
+          aria-label={alreadyAdded ? "Added to watchlist" : "Add to watchlist"}
+          className={`text-xl font-bold ${
+            alreadyAdded
+              ? "opacity-60 cursor-not-allowed"
+              : "hover:bg-blue-600"
+          }`}
         >
           +
-        </span>
+        </button>
       </div>
 
       {/* Bottom Title Overlay */}
